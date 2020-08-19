@@ -22,7 +22,7 @@ const show = document.getElementsByClassName('show');
 const divKids = divOverlay.getElementsByTagName('h2');
 
 // phrase array for guessing
-const phrases = ["the incredible hulk","wizard of oz","jumanji","yojimbo","walking with dinosaurs","fantasia", "avengers endgame","my neighbour totoro","the life aquatic"];
+const phrases = ["sasquatch","loch ness monster", "mothman", "jersey devil", "kraken", "kelpie", "mongolian death worm", "skunk ape"];
 
 
 // ***** FUNCTIONS ***** //
