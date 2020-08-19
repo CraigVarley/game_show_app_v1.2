@@ -1,6 +1,6 @@
 /* Main styles */
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&Roboto:300');
-
+@import url('https://fonts.googleapis.com/css2?family=Carrois+Gothic+SC&display=swap');
 /* Variables */
 
 :root {
@@ -11,10 +11,62 @@
   --color-neutral-light: #D2D2D2;
   --color-keys: #37474F;
   --color-keys-light: #E5E5E5;
+  --font-size-v-large:80px;
   --font-size-large: 60px;
   --font-size-medium: 20px;
   --transition: all .2s ease-in-out;
 }
+
+html {
+ background-color:black;
+}
+
+/* initial title fade transition */
+
+#startTitle1 {
+  font-family: 'Carrois Gothic SC';
+  opacity: 0;
+  transition: opacity ease-in 2s;
+  letter-spacing: 0.4em;
+}
+#startTitle2 {
+  font-family: 'Carrois Gothic SC';
+  opacity: 0;
+  transition: opacity ease-in 3s;
+  letter-spacing: 0.5em;
+  font-size:175px;
+  }
+
+#btn_start {
+  opacity: 0;
+  transition: opacity cubic-bezier(.55,.06,.68,.19) 3s;
+  width:100px;
+  height:100px;
+}
+
+/* title animation to be apended to titles after fade load(), also on win screen title */
+.spin { 
+  animation: 4s spin 1 ease-in-out;
+}
+
+@keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
+}
+
+.spintwo { 
+  animation: 4s spintwo 1 ease-in-out;
+}
+
+@keyframes spintwo {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
+}
+
+#win h2 {
+  opacity:0;
+}
+
 
 /* main */
 
@@ -34,22 +86,35 @@ li, ol, ul {
   display: inline-block;
 }
 
+.tries img {
+  height:70px;
+  width:60px;
+}
+
 h2 {
   margin: 0;
   text-transform: uppercase;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Carrois Gothic SC', sans-serif;
+  letter-spacing: .5em;
   font-size: var(--font-size-large);
   margin: 0;
+}
+
+h3 {
+  font-size: var(--font-size-v-large);
+  font-family: 'Carrois Gothic SC', sans-serif;
 }
 
 button {
   margin: 6px;
   border: 1px solid transparent;
-  padding: .5rem 1rem;
-  color: var(--color-keys);
+  padding: 1rem 1rem;
+  /* color: var(--color-keys); */
   font-size: var(--font-size-medium);
-  background-color: var(--color-keys-light);
-  border-radius: 5px;
+  /* background-color: var(--color-keys-light); */
+  border-radius: 50%;
+  height:70px;
+  width:70px;
   -webkit-transition: var(--transition);
   -o-transition: var(--transition);
   transition: var(--transition);
@@ -62,6 +127,9 @@ button {
   height: 100%;
   max-height: 900px;
   text-align: center;
+  background-image: url('../images/space.jpg');
+  background-size: cover;
+  box-shadow: 0 0 3px 3px black inset;
 }
 
 .section {
@@ -72,7 +140,7 @@ button {
 /* Title */
 
 .header {
-  color: var(--color-start);
+  color: white;
 }
 
 /* Phrase */
@@ -86,6 +154,12 @@ button {
   color: transparent;
   background: var(--color-neutral-light);
   border-radius: 5px;
+}
+
+.noletter {
+  height: 0px;
+  width: 0px;
+  padding: 0px 10px 0 10px;
 }
 
 .space {
@@ -105,24 +179,33 @@ button {
 }
 
 .chosen {
-  background: var(--color-neutral);
-  border-radius: 5px;
+  background-color: #70F5FF;
+  border-radius: 50%;
   font-size: var(--font-size-medium);
-  color: #FFFFFF;
+  /* keyboard click fade */
+  transform:scale(0,0);
+  transition-duration:1s;
 }
+
 
 .btn__reset {
   padding: 8px;
+  width:100px;
+  height:100px;
   margin: 50px auto;
   background: #FFFFFF;
-  border-radius: 5px;
   font-size: var(--font-size-medium);
 }
 
-/* Overlay */
+/* font effect on win title*/
 
-#overlay {
-  display: flex;
+#wintext {
+  animation: 3s spin 1 ease-in-out;
+  letter-spacing: 0.4em;
+}
+
+
+#overlay, #win, #lose {
   flex-direction: column;
   position: fixed;
   color: #FFFFFF;
@@ -132,6 +215,18 @@ button {
   left: 0;
   right: 0;
   border-radius: 5px;
+}
+
+#overlay {
+  background-image: url('../images/milkywaybg.jpg');
+  background-size: cover;
+  display:flex;
+}
+
+#win, #lose {
+  display:none;
+  background-image: url('../images/milkywaybg.jpg');
+  background-size: cover;
 }
 
 .title {
